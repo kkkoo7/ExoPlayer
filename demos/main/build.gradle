@@ -35,8 +35,8 @@ android {
             shrinkResources true
             minifyEnabled true
             proguardFiles = [
-                "proguard-rules.txt",
-                getDefaultProguardFile('proguard-android.txt')
+                    "proguard-rules.txt",
+                    getDefaultProguardFile('proguard-android.txt')
             ]
         }
         debug {
@@ -68,12 +68,20 @@ dependencies {
     implementation project(modulePrefix + 'library-hls')
     implementation project(modulePrefix + 'library-smoothstreaming')
     implementation project(modulePrefix + 'library-ui')
+    implementation 'com.android.support:recyclerview-v7:28.0.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     withExtensionsImplementation project(path: modulePrefix + 'extension-ffmpeg')
     withExtensionsImplementation project(path: modulePrefix + 'extension-flac')
     withExtensionsImplementation project(path: modulePrefix + 'extension-ima')
     withExtensionsImplementation project(path: modulePrefix + 'extension-opus')
     withExtensionsImplementation project(path: modulePrefix + 'extension-vp9')
     withExtensionsImplementation project(path: modulePrefix + 'extension-rtmp')
+
+    // code generator for view
+    implementation "com.jakewharton:butterknife:8.8.1"
+    annotationProcessor "com.jakewharton:butterknife-compiler:8.8.1"
+
+    implementation 'com.android.support:appcompat-v7:28.0.0'
 }
 
 apply plugin: 'com.google.android.gms.strict-version-matcher-plugin'
